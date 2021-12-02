@@ -8,22 +8,40 @@ class NewToDoForm extends Component {
             todos: [
                 {
                     task: "",
-                    id: "",
-                    completed: "",
                 },
             ],
         };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
+    handleSubmit(evt) {
+        evt.preventDefault();
+        const newTodo = { ...this.state, id: uuidv4() };
+        console.log(newTodo);
+        this.props.addNewTodo(newTodo); 
+        console.log("I'm here!");
+        this.setState({ task: "" });
+    }
+
+    handleChange(evt) {
+        this.setState({ [evt.target.name]: evt.target.value });
+    }
+
     render() {
         return (
-            <form>
-                <div>
+            <div>
+                <form onSubmit={this.handleSubmit}>
                     <label htmlFor="todo">Add a task</label>
-                    <input type="text" name="todo" id="todo" />
-                </div>
+                    <input
+                        type="text"
+                        name="task"
+                        id="task"
+                        onChange={this.handleChange}
+                    />
 
-                <button>Add</button>
-            </form>
+                    <button>Add</button>
+                </form>
+            </div>
         );
     }
 }

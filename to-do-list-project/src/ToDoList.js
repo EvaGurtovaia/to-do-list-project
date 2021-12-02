@@ -11,15 +11,20 @@ class ToDoList extends Component {
                 {
                     task: "Organize Garage",
                     id: uuidv4(),
-                    completed: false,
                 },
                 {
                     task: "Bake Cookies",
                     id: uuidv4(),
-                    completed: false,
                 },
             ],
         };
+        this.addNewTodo = this.addNewTodo.bind(this);
+    }
+
+    addNewTodo(newTodo) {
+        this.setState({
+            todos: [...this.state.todos, newTodo],
+        });
     }
 
     render() {
@@ -30,9 +35,9 @@ class ToDoList extends Component {
         return (
             <div>
                 <ul>
-                <div className="ToDoList">{todos}</div>
+                    <div className="ToDoList">{todos}</div>
                 </ul>
-                <NewToDoForm />
+                <NewToDoForm addNewTodo={this.addNewTodo} />
             </div>
         );
     }
