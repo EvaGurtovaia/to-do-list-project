@@ -9,7 +9,7 @@ class ToDo extends Component {
                     <div className="ToDo">{this.props.task}</div>
                 </li>
                 <button>Edit</button>
-                <button>X</button>
+                <button onClick={this.props.delete}>X</button>
             </div>
         );
     }

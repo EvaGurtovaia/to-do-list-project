@@ -18,7 +18,7 @@ class NewToDoForm extends Component {
         evt.preventDefault();
         const newTodo = { ...this.state, id: uuidv4() };
         console.log(newTodo);
-        this.props.addNewTodo(newTodo); 
+        this.props.addNewTodo(newTodo);
         console.log("I'm here!");
         this.setState({ task: "" });
     }
@@ -35,6 +35,7 @@ class NewToDoForm extends Component {
                     <input
                         type="text"
                         name="task"
+                        value={this.state.task}
                         id="task"
                         onChange={this.handleChange}
                     />
