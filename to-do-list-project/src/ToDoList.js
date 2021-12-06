@@ -19,6 +19,7 @@ class ToDoList extends Component {
             ],
         };
         this.addNewTodo = this.addNewTodo.bind(this);
+        this.update = this.update.bind(this);
     }
 
     addNewTodo(newTodo) {
@@ -32,6 +33,15 @@ class ToDoList extends Component {
             todos: this.state.todos.filter((todo) => todo.id !== id),
         });
     }
+    update(id, updatedTask) {
+        const updatedTodos = this.state.todos.map((todo) => {
+            if (todo.id === id) {
+                return { ...todo, task: updatedTask };
+            }
+            return todo;
+        });
+        this.setState({ todos: updatedTodos });
+    }
 
     render() {
         const todos = this.state.todos.map((todo) => {
@@ -41,6 +51,7 @@ class ToDoList extends Component {
                     id={todo.id}
                     task={todo.task}
                     delete={() => this.delete(todo.id)}
+                    update={this.update}
                 />
             );
         });
