@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { v4 as uuidv4 } from "uuid";
+import "./NewToDoForm.css";
 
 class NewToDoForm extends Component {
     constructor(props) {
@@ -12,7 +13,7 @@ class NewToDoForm extends Component {
     }
     handleSubmit(evt) {
         evt.preventDefault();
-        const newTodo = { ...this.state, id: uuidv4(), isCompleted: false};
+        const newTodo = { ...this.state, id: uuidv4(), isCompleted: false };
         console.log(newTodo);
         this.props.addNewTodo(newTodo);
         console.log("I'm here!");

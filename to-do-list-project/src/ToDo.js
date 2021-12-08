@@ -49,7 +49,6 @@ class ToDo extends Component {
         } else {
             result = (
                 <div>
-                    <h2>To Do List</h2>
                     <li
                         className={this.props.isCompleted && "Completed"}
                         onClick={this.handleToggle}

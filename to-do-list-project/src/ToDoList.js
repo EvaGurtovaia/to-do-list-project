@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ToDo from "./ToDo";
 import NewToDoForm from "./NewToDoForm";
 import { v4 as uuidv4 } from "uuid";
+import "./ToDoList.css";
 
 class ToDoList extends Component {
     constructor(props) {
@@ -70,9 +71,9 @@ class ToDoList extends Component {
         });
 
         return (
-            <div>
+            <div className="ToDoList">
                 <ul>
-                    <div className="ToDoList">{todos}</div>
+                    <div>{todos}</div>
                 </ul>
                 <NewToDoForm addNewTodo={this.addNewTodo} />
             </div>
