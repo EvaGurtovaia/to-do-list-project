@@ -72,6 +72,9 @@ class ToDoList extends Component {
 
         return (
             <div className="ToDoList">
+                <h1>
+                    Todo List<span>Simple React Todo List App</span>
+                </h1>
                 <ul>
                     <div>{todos}</div>
                 </ul>
