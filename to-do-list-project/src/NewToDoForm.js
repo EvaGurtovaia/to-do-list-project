@@ -12,7 +12,7 @@ class NewToDoForm extends Component {
     }
     handleSubmit(evt) {
         evt.preventDefault();
-        const newTodo = { ...this.state, id: uuidv4() };
+        const newTodo = { ...this.state, id: uuidv4(), isCompleted: false};
         console.log(newTodo);
         this.props.addNewTodo(newTodo);
         console.log("I'm here!");
